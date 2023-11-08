@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Page Title</title>
+</head>
+<body>
+    <div id="Blake"></div>
+
+    <script type="text/javascript">
+        function makeBlake() {
+            var Blake = document.createElement('div');
+            document.body.appendChild(Blake);
+            Blake.style.width = "300px";
+            Blake.style.height = "200px";
+            Blake.style.backgroundImage = "url(https://www.nicepng.com/png/full/78-784970_blake-griffin-dunk-png.png)";
+            Blake.style.backgroundSize = "contain";
+            Blake.style.backgroundRepeat = "no-repeat";
+            Blake.style.display = "inline-block";
+        }
+
+        setInterval(makeBlake, 500);
+
+        var lebron = 0;
+        var jordan = 0;
+
+        document.addEventListener("click", function () {
+            console.log(lebron + 1);
+            lebron = lebron + 1;
+        });
+
+        document.addEventListener("keypress", function () {
+            console.log(jordan - 1);
+            jordan = jordan - 1;
+        });
+    </script>
+
+    <div id="Blake"></div>
+</body>
+</html>

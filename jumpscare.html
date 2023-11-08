@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		.box {
+			width: 100%;
+			height: 1000px;
+			background-image: url(https://assets1.cbsnewsstatic.com/hub/i/r/2015/10/16/a0148143-0d4a-4761-807b-1d70a2bc26fb/thumbnail/1200x630/d8f0e678a9fccdd4b42d3d49d02de693/shutterstock_76572658.jpg?v=287f03e8b6c956e3847aad6c604a17dd);
+			background-size: cover;
+			background-position: center;
+
+		}
+
+	</style>
+</head>
+<body>
+	<audio id="sound">
+		<source src="joker.mp3" type="audio/mpeg">
+	</audio>
+
+
+	<div id="box1" class="box"></div>
+
+	<script type="text/javascript">
+		var x = 0;
+		var box1 = document.getElementById("box1");
+
+document.addEventListener("click", function() {
+	 var sound = document.getElementById("sound");
+    sound.src = "joker.mp3";
+    sound.play();
+    x = x + 1;
+    console.log(x);
+    var box1 = document.getElementById("box1");
+
+
+    if (x === 1) {
+        box1.style.backgroundImage = "url(https://media0.giphy.com/media/2KdjGsnQ5cnBsq2sgZ/200w.gif?cid=82a1493bp8ljeh3j29f843wsy2vn2oxiyxxrf690jehvwzgp&ep=v1_gifs_search&rid=200w.gif&ct=g)";
+        
+        var sound = document.getElementById("sound");
+        sound.src = "joker.mp3";
+        sound.play();
+    
+    }
+});
+	</script>
+</body>
+</html>
