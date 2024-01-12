@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+    #pizza {
+      width:230px;
+      height:720px;
+      left:600px;
+      position:relative;
+      background-image: url("BenWeed.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+    #onion {
+        background-image: url(Sp5der.png);
+    }
+
+    #bacon {
+        background-image: url(Offwhitepants.png);
+    }
+
+    .topping {
+        width: 100px;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        display: inline-block;
+        position: relative;
+
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="topping" id="onion"></div>
+    <div class="topping" id="bacon"></div>
+    <div id="pizza"></div>
+    <script type="text/javascript">
+    var image;
+
+
+
+
+
+    function makeTopping() {
+        var pepp = document.createElement("pepperoni");
+        var angle = Math.floor((Math.random() * 360) + 1);
+        pepp.style.width = "100px";
+        pepp.style.height = "100px";
+        pepp.style.borderRadius = "50%";
+        pepp.style.position = "absolute";
+        pepp.style.backgroundImage = "url(" + image + ")";
+        pepp.style.backgroundSize = "cover";
+        pepp.style.transform = "rotate("
+        + angle + "deg)";
+
+
+
+        pizza.addEventListener("mousemove", function(event) {
+            console.log(event)
+
+        });
+
+
+        pizza.appendChild(pepp);
+
+        pepp.style.left =   event.clientX - 50 + "px";
+        pepp.style.top = event.clientY - 50 + "px";
+
+
+
+    };
+
+    onion.addEventListener("click", function() {
+
+        image = "Sp5der.png"
+    });
+    bacon.addEventListener("click", function() {
+
+        image = "Offwhitepants.png"
+    });
+
+
+    pizza.addEventListener("click", makeTopping);
+    </script>
+</body>
+
+</html>

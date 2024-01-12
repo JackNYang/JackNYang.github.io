@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+	#present {
+		width: 1000px;
+		height: 1000px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-image:url("https://www.si.com/.image/t_share/MTY4MDI1MTM4Njc0ODY5NjMy/lebron-james-cleveland-cavaliers-return.jpg");
+	}
+
+</style>
+</head>
+<body>
+	<center>
+	<div id="present"></div>
+</center>
+<script type="text/javascript">
+	var count = 0;
+	var imageIndex = 0;
+	var images = [
+		"https://www.si.com/.image/t_share/MTY4MDI1MTM4Njc0ODY5NjMy/lebron-james-cleveland-cavaliers-return.jpg",
+		"https://clesportstalk.com/wp-content/uploads/2019/12/45ca9500-18ab-11ea-bebe-56faaebc6269.jpg",
+		// Add more image URLs as needed
+	];
+	var colors = ["blue", "red", "purple"];
+
+	var present = document.getElementById("present");
+
+	present.addEventListener("click", function(){
+		count = (count + 1) % colors.length;
+		imageIndex = (imageIndex + 1) % images.length;
+		document.body.style.backgroundColor = colors[count];
+		present.style.backgroundImage = "url('" + images[imageIndex] + "')";
+	});
+</script>
+
+</body>
+</html>

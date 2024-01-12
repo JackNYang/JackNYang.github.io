@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		.box{
+			width:200px;
+			height:200px;
+			border:1px solid black;
+			display: inline-block;
+			background-size: cover;
+		}
+		#handle{
+			border:none;
+			background-color:red;
+		}
+
+	</style>
+</head>
+<body>
+
+<h1>Who has the best Jordans?
+<br>
+
+	<div id="one" class="box"></div>
+	<div id="two" class="box"></div>
+	<div id="three" class="box"></div>
+	<div class="box" id="handle">Handle</div>
+	<script type="text/javascript">
+
+		var people =["url(https://static.wikia.nocookie.net/sporting-profiles/images/d/d2/KawhiLeonard.png/revision/latest?cb=20201225101905)", "url(https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_320,q_50/lsci/db/PICTURES/CMS/316600/316605.png)", "url(https://www.bdfutbol.com/i/j/22913b.jpg)", "url(https://www.fite.tv/thumbs/s3/ims-thumbs/fighters_images/Vasilii_Kamotskii.jpg)", "url(https://cdn.openart.ai/stable_diffusion/c762de9d7f0d5a4f32601808c32bded5414a5a9a_2000x2000.webp)",
+		"url(https://www.nydailynews.com/wp-content/uploads/migration/2019/11/05/GHNPG6XRR2R7XOKGCIRGPUJ7FQ.jpg?w=620)"]
+
+		handle.addEventListener("click", function(){
+
+
+		var donkey1 = Math.round(Math.random()*5);
+		var donkey2 = Math.round(Math.random()*5);
+		var donkey3 = Math.round(Math.random()*5);
+
+		console.log(people[donkey1])
+		console.log(people[donkey2])
+		console.log(people[donkey3])
+
+		one.style.backgroundImage = people[donkey1]
+		two.style.backgroundImage = people[donkey2]
+		three.style.backgroundImage = people[donkey3]
+
+		})
+	</script>
+
+</body>
+</html>

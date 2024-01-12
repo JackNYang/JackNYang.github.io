@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+    <title>Simple FPS Game</title>
+</head>
+<body>
+    <canvas id="fpsCanvas" width="800" height="600"></canvas>
+
+    <script>
+        const canvas = document.getElementById('fpsCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            size: 20,
+            speed: 5,
+        };
+
+        const bullets = [];
+        const bulletSpeed = 10;
+
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('mousedown', handleMouseDown);
+
+        function handleKeyDown(event) {
+            const keyCode = event.keyCode;
+            switch (keyCode) {
+                case 87: // W key
+                    player.y -= player.speed;
+                    break;
+                case 83: // S key
+                    player.y += player.speed;
+                    break;
+                case 65: // A key
+                    player.x -= player.speed;
+                    break;
+                case 68: // D key
+                    player.x += player.speed;
+                    break;
+            }
+        }
+
+        function handleMouseDown(event) {
+            const mouseX = event.clientX - canvas.getBoundingClientRect().left;
+            const mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+            const angle = Math.atan2(mouseY - player.y, mouseX - player.x);
+            const velocity = {
+                x: bulletSpeed * Math.cos(angle),
+                y: bulletSpeed * Math.sin(angle),
+            };
+
+            bullets.push({ x: player.x, y: player.y, velocity });
+        }
+
+        function update() {
+            // Update bullets
+            bullets.forEach(bullet => {
+                bullet.x += bullet.velocity.x;
+                bullet.y += bullet.velocity.y;
+            });
+
+            // Remove bullets that are out of bounds
+            bullets.forEach((bullet, index) => {
+                if (
+                    bullet.x < 0 ||
+                    bullet.x > canvas.width ||
+                    bullet.y < 0 ||
+                    bullet.y > canvas.height
+                ) {
+                    bullets.splice(index, 1);
+                }
+            });
+        }
+
+        function draw() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw player
+            ctx.fillStyle = '#00F';
+            ctx.beginPath();
+            ctx.arc(player.x, player.y, player.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.closePath();
+
+            // Draw bullets
+            ctx.fillStyle = '#F00';
+            bullets.forEach(bullet => {
+                ctx.beginPath();
+                ctx.arc(bullet.x, bullet.y, 5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+            });
+        }
+
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>

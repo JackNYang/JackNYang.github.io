@@ -6,34 +6,62 @@
     <title>Your Page Title</title>
 </head>
 <body>
-    <div id="Blake"></div>
+    <!-- <div id="Blake"></div> -->
 
     <script type="text/javascript">
         function makeBlake() {
+
+
             var Blake = document.createElement('div');
             document.body.appendChild(Blake);
             Blake.style.width = "300px";
-            Blake.style.height = "200px";
-            Blake.style.backgroundImage = "url(https://www.nicepng.com/png/full/78-784970_blake-griffin-dunk-png.png)";
+            Blake.style.height = "300px";
+            Blake.style.backgroundImage = "url(https://sportando.basketball/wp-content/uploads/2021/07/1629130.png)";
             Blake.style.backgroundSize = "contain";
             Blake.style.backgroundRepeat = "no-repeat";
             Blake.style.display = "inline-block";
+                         Blake.style.position = "relative"
+            Blake.style.transition = ".5s"
+            Blake.addEventListener("click", function (event){
+                Blake.style.backgroundImage="url(https://cdn.nba.com/headshots/nba/latest/1040x760/201142.png)";
+
+
+
+          
+
+        })
+
+            // function move (){
+            // Blake.style.left = Math.random()*1000 + "px";
+            // Blake.style.top = Math.random()*1000 + "px";
+            //      }
+            //  setInterval(move, 1000)
+
+
         }
 
         setInterval(makeBlake, 500);
 
-        var lebron = 0;
-        var jordan = 0;
+        
 
-        document.addEventListener("click", function () {
-            console.log(lebron + 1);
-            lebron = lebron + 1;
-        });
 
-        document.addEventListener("keypress", function () {
-            console.log(jordan - 1);
-            jordan = jordan - 1;
-        });
+        // console.log()
+
+
+
+
+        // var lebron = 0;
+        // var jordan = 0;
+
+        // document.addEventListener("click", function () {
+        //     console.log(lebron + 1);
+        //     lebron = lebron + 1;
+        // });
+
+        // document.addEventListener("keypress", function () {
+        //     console.log(jordan - 1);
+        //     jordan = jordan - 1;
+        // });
     </script>
 
     <div id="Blake"></div>

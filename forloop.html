@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+
+	<style type="text/css">
+
+		.basketball{
+			width:300px;
+			height:400px;
+			background-size:cover ;
+			display:inline-block;
+			background-image: url(cloud.png);
+
+
+
+		}
+	</style>
+</head>
+<body>
+
+	<center> <h1>This is how many MVPS Lonnie Walker has.</h1></center>
+
+	<div id="ball1" class="basketball"></div>
+
+	<!-- <div class="basketball"></div>
+	<div class="basketball"></div>
+	<div class="basketball"></div>
+	<div class="basketball"></div> -->
+
+<script type="text/javascript">
+
+	function makeBasket (){
+		var ball = document.createElement("div")
+		document.body.appendChild(ball)
+		ball.classList.add("basketball")
+		// ball.innerText = x
+		document.addEventListener("click", function() {
+	 var sound = document.getElementById("sound");
+    sound.src = "joker.mp3";
+    sound.play();
+    x = x + 1;
+    console.log(x);
+    var box1 = document.getElementById("box1");
+	}
+
+
+	for (var counter=0; counter<1000; counter=counter+1) {makeBasket()
+}
+
+</script>
+
+</body>
+</html>

@@ -4,37 +4,45 @@
 <title></title>
 <style type="text/css">
 	#present{
-		width:400px;
-		height:400px;
-		background-size:contain:;
+		width:1200px;
+		height:700px;
 		background-repeat: no-repeat;
-		background-image:url(https://www.si.com/.image/t_share/MTY4MDI1MTM4Njc0ODY5NjMy/lebron-james-cleveland-cavaliers-return.jpg);
+		background-size: cover;
+		background-image:url(Jon.jpg);
 	}
 
 </style>
 </head>
 <body>
-	<center></div id="present"></div>
+	<center>
+	<div id="present"></div>
 </center>
+<audio id="sound">
+		<source src="Song.mp3" type="audio/mpeg">
+	</audio>
 <script type="text/javascript">
-	var count = 0
+	var count = -1
+	var imageNumber=0;
+	var images = [
+		"Jon1.JPG",
+		"Jon2.JPG",
+		"Jon.JPG",
+		"NazReid.JPG",
+		"Jon4.JPG",
+		"NazReid1.JPG"
+		];
+	 var colors = ["blue","red","green","purple","black"];
+	 var present = document.getElementById("present");
+	 var sound = document.getElementById("sound");
+    sound.src = "Song.mp3";
+    
 	present.addEventListener("click", function(){
-		count = count+1;
-		console.log(count)
-
-		if (count%==0){
-			document.body.style.backgroundColor ="blue"
-		}
-
-		if (count%==1){
-			document.body.style.backgroundColor = "red"
-		}
-
-		if (count%==2){
-			document.body.style.backgroundColor = "purple"
-		}
-	})
-
+		sound.play();
+		count = (count) % colors.length;
+		imageNumber = (imageNumber+1)% images.length
+		document.body.style.backgroundColor = colors[count];
+		present.style.backgroundImage = "url(" + images[imageNumber] + ")";
+	});
 
 </script>
 

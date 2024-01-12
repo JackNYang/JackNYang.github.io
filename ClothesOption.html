@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+
+	<style type="text/css">
+	#Ben{
+	width:800px;
+	height:2500px;
+	left:1000px;
+	background-image: url("BenWeed.png");
+	background-repeat: no-repeat;
+	position:relative;
+	}
+
+
+	#pants{
+		background-image:url(Baggy.png);
+	}
+
+	#fleece{
+		background-image:url(Fear.png);
+	}
+
+	#hoodie{
+		background-image:url(Mcdonalds!!.png);
+	}
+
+	#vest{
+		background-image:url(Vest.png);
+	}
+
+	#jordan4{
+		background-image:url(jordan4.png);
+	}
+
+	.clothing {
+        width: 400px;
+        height: 450px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        position: relative;
+    }
+	</style>
+</head>
+
+<body>
+	<div class="clothing" id ="pants"></div>
+	<div class="clothing" id ="fleece"></div>
+	<div class="clothing" id ="hoodie"></div>
+	<div class="clothing" id ="vest"></div>
+	<div class="clothing" id ="jordan4"></div>
+	<div id="Ben"></div>
+	<script type="text/javascript">
+	var image;
+
+	var ClickX;
+
+	var ClickY;
+
+	var clothesW;
+
+	var clothesH;
+
+	var numberhood=0;
+
+	var numberpants=0;
+
+	var numbershoes=0;
+
+	var pantsclothes;
+
+	var hoodclothes;
+
+	var shoesclothes
+
+	var pantsclick;
+
+	var scale;
+
+	function makeclothing(){
+		if(pantsclick==1)
+		{
+			if(numberpants==1)
+				{
+					Ben.removeChild(pantsclothes)
+					numberpants=0
+				}
+		}
+		else if(pantsclick==2)
+		{
+
+			if(numbershoes==1)
+			{
+				Ben.removeChild(shoesclothes)
+				numbershoes=0
+			}
+		}
+		else
+		{
+			if(numberhood==1)
+				{
+					Ben.removeChild(hoodclothes)
+					numberhood=0
+				}
+		}
+	
+		var Clothes = document.createElement("wear");
+		Clothes.style.backgroundImage="url("+ image + ")";
+		Clothes.style.width=clothesW;
+		Clothes.style.height=clothesH;
+        Clothes.style.display= "inline-block";
+		Clothes.style.position="absolute";
+		Clothes.style.backgroundSize="cover";
+		Clothes.style.backgroundSize="contain";
+		Clothes.style.backgroundRepeat="no-repeat";
+
+	if (pantsclick==1){
+		pantsclothes=Clothes
+		numberpants=1
+	}
+	else if(pantsclick==2){
+		shoesclothes=Clothes
+		numbershoes=1
+	}
+	 else {
+	 	hoodclothes=Clothes
+		numberhood=1
+	}
+	
+
+	Ben.addEventListener("mousemove", function(event){
+		console.log(event)
+
+	});
+
+	Ben.appendChild(Clothes)
+	Clothes.style.left = event.clientX + ClickX +"px";
+    Clothes.style.top = event.clientY + ClickY +"px";
+
+ 
+	};
+
+	pants.addEventListener("click", function(){
+		pantsclick=1
+		ClickX= -1200
+		ClickY= -400
+		clothesH="30%"
+		clothesW="95%"
+		image = "Baggy.png"
+	});
+
+	hoodie.addEventListener("click", function(){
+		pantsclick=3
+		ClickX= -1100
+		ClickY= -800
+		clothesH="90%"
+		clothesW="70%"
+		image = "Mcdonalds!!.png"
+	});
+
+	fleece.addEventListener("click", function(){
+		pantsclick=3
+		ClickX=-1400
+		ClickY=-400
+		clothesH="80%"
+		clothesW="80%"
+		image = "Fear.png"
+	})
+	vest.addEventListener("click", function(){
+		pantsclick=3
+		ClickX=-1400
+		ClickY=-400
+		clothesH="80%"
+		clothesW="40%"
+		image = "Vest.png"
+	})
+
+	jordan4.addEventListener("click", function(){
+		pantsclick=2
+		ClickX=-1200
+		ClickY=100
+		clothesH="50%"
+		clothesW="30%"
+		image = "Jordan4.png"
+	})
+
+
+	Ben.addEventListener("click", makeclothing);
+	</script>
+</body>
+
+</html>
