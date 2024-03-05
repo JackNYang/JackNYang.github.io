@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		#car{
+			background-image:url(Porsche.png);
+			width:700px;
+			height:400px;
+			top:600px;
+			background-size: cover;
+			background-repeat: no-repeat;
+			position: absolute;
+		}
+
+		#background{
+			background-image:url(road.png);
+			width:10000px;
+			height:1000px;
+			background-size: contain;
+			background-repeat: repeat-x;
+		}
+		body{margin:0px;}
+	</style>
+</head>
+<body>
+	<audio id="sound">
+		<source src="16missedcalls.mp3" type="audio/mpeg">
+	</audio>
+
+	<div id="car"></div>
+	<div id="background"></div>
+
+	<script type="text/javascript">
+		var x = 0
+		var y = 0
+		document.addEventListener("keydown", function(event){
+
+		if (event.key=="ArrowRight"){
+			x=x+30
+			car.style.left = x +'px';
+		}
+
+		if (event.key=="ArrowLeft"){
+			x=x-30
+			car.style.left = x +'px';
+		}
+
+		if (event.keyCode==32){
+			var sound = document.getElementById("sound");
+    			sound.src = "16missedcalls.mp3";
+    			sound.play();
+		}
+
+	})
+	</script>
+</body>
+</html>
