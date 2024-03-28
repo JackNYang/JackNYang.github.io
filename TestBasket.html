@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NBA Players</title>
+
+    <style type="text/css">
+        .container {
+            position: relative;
+            width: 400px; 
+            height: 400px;
+        }
+
+        .image {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 0;
+            left: 0;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
+        }
+
+        .lebron {
+            z-index: 8;
+            background-image:url(https://img.bleacherreport.net/img/images/photos/002/369/568/hi-res-170990300_crop_exact.jpg?w=1200&h=1200&q=75);
+            background-size:contain;
+            background-repeat: no-repeat;        
+            background-size: cover;
+        }
+
+        .kd {
+            z-index:7;
+            background-image:url(https://s.yimg.com/ny/api/res/1.2/WKW5cGfrjLoLLzr82h5ROw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTY-/https://s.yimg.com/os/creatr-images/2019-09/0b66d4c0-d3e9-11e9-bdef-7b23a787fa42);
+            background-size: contain;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .curry {
+            z-index:6;
+            background-image:url(https://media.bleacherreport.com/image/upload/c_fill,g_faces,w_1600,h_1600,q_95/v1655436398/cvtdiqjqf54zrtzupybe.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;        
+            background-size: cover;
+        }
+
+        .kyrie {
+            z-index: 5;
+            background-image:url(B-Kyrie.png);
+            background-size:contain;
+            background-size: cover;
+        }
+
+        .tmac {
+            z-index: 4;
+            background-image:url(https://vz.cnwimg.com/thumb-900x/wp-content/uploads/2009/11/Tracy-McGrady-1.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .duncan {
+            z-index: 3;
+            background-image:url(https://wp.usatodaysports.com/wp-content/uploads/sites/90/2014/06/usatsi_7956120.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .vince {
+            z-index: 2;
+            background-image:url(https://www.basketballnetwork.net/.image/c_fit%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1280/MjA0NDgwMTY3NDQyMTMwNzIw/vince-carter-slam-dunk-contest.jpg);
+            background-size:contain;
+        }
+
+        .cp3 {
+            z-index: 1; 
+            background-image:url(https://pbs.twimg.com/profile_images/1370401613735718923/ZLDCeKT4_400x400.jpg);
+            background-size:contain;
+            background-size: cover;
+        }
+
+        .stats-container {
+            width: 400px;
+            margin-top: 20px;
+            display: none; /* Initially hide stats container */
+        }
+
+        .stats-content {
+            display: none;
+        }
+
+        .stats-content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image lebron" onclick="showStats(this)"></div>
+        <div class="image kd" onclick="showStats(this)"></div>
+        <div class="image tmac" onclick="showStats(this)"></div>
+        <div class="image duncan" onclick="showStats(this)"></div>
+        <div class="image curry" onclick="showStats(this)"></div>
+        <div class="image kyrie" onclick="showStats(this)"></div>
+        <div class="image vince" onclick="showStats(this)"></div>
+        <div class="image cp3" onclick="showStats(this)"></div>
+    </div>
+
+  
+    <!-- Buttons to change z-index -->
+    <button onclick="handleButtonClick()">Start</button>
+  <!-- Stats Display -->
+    <div class="stats-container" id="statsTextBox">
+
+</div>
+<input type="checkbox" name="3pt" value="4" onclick='handleClick(this);'/>
+<label for="3pt">3pt</label><br>
+<input type="checkbox" name="midrange" value="3" />
+<label for="3pt">MidRange</label><br>
+<input type="checkbox" name="dunk" value="1" disabled="disabled" />
+<label for="3pt">DUNK</label><br>
+<input type="checkbox" name="pass" value="5" />
+<label for="3pt">PASS</label><br>
+<table border="2">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Tour</th>
+      <th scope="col">Day</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+                                    
+  </tbody>
+</table>
+const data = [{Name:'Sydney', Day: 'Monday', Time: '10:00AM'},{Name:'New York', Day: 'Monday',Time: '11:00AM'},]; // any json data or array of objects
+
+const tableData = data.map(value => {
+  return (
+    `<tr>
+       <td>${value.Name}</td>
+       <td>${value.Day}</td>
+       <td>${value.Time}</td>
+    </tr>`
+  );
+}).join('');
+
+const tableBody = document.querySelector("#tableBody");
+tableBody.innerHTML = tableData;
+    <!-- Script to handle button click -->
+    <script type="text/javascript">
+        // Function to handle button click
+        function handleClick(){
+            console.info('checked')
+        }
+        function Switch() {
+            // Select all images
+            var images = document.querySelectorAll('.image');
+
+            // Loop through images and adjust z-index values
+            images.forEach(function(image) {
+                // Get current z-index value
+                var zIndex = parseInt(window.getComputedStyle(image).zIndex);
+
+                // Increase z-index value by 1 (and wrap around if it exceeds 4)
+                zIndex = zIndex % 8 + 1;
+
+                // Set the new z-index value
+                image.style.zIndex = zIndex;
+            });
+        }
+
+        function handleButtonClick() {
+            for (var i = 1; i <= Math.round(Math.random() * 10000); i++) {
+                setTimeout(Switch, i * 20); // Execute Switch with increasing delay
+            }
+            var images = document.querySelectorAll('.image')
+            showStats(images[1])
+        }
+
+        function showStats(image) {
+            var statsTextBox = document.getElementById('statsTextBox');
+            statsTextBox.innerHTML = ''; // Clear previous content
+
+            // Get the class name of the clicked image
+            var className = image.classList[1]; // Assumes the second class is the player name
+            // Define player statistics
+            var playerStats = {
+                lebron: {
+                    height: '6.8 ft',
+                    three: '88',
+                    mid: '87',
+                    scoring: '97',
+                    iq: '98',
+                    athleticism: '96',
+                    rebounding: '89',
+                    playmaking: '94',
+                    defending: '95',
+                    handles: '89',
+                },
+                kd: {
+                    height: '6.9 ft',
+                    three: '93',
+                    mid: '98',
+                    scoring: '99',
+                    iq: '94',
+                    athleticism: '81',
+                    rebounding: '60',
+                    playmaking: '81',
+                    defending: '75',
+                    handles: '86',
+                },
+                kyrie: {
+                    height: '6.3 ft',
+                    three: '95',
+                    mid: '97',
+                    scoring: '98',
+                    iq: '92',
+                    athleticism: '86',
+                    rebounding: '50',
+                    playmaking: '89',
+                    defending: '64',
+                    handles: '99',
+                },
+                vince: {
+                    height: '6.6 ft',
+                    three: '90',
+                    mid: '93',
+                    scoring: '95',
+                       iq: '87',
+                    athleticism: '99',
+                    rebounding: '65',
+                    playmaking: '83',
+                    defending: '76',
+                    handles: '88',
+                },
+                cp3: {
+                    height: '6.0 ft',
+                    three: '85',
+                    mid: '94',
+                    scoring: '96',
+                    iq: '99',
+                    athleticism: '83',
+                    rebounding: '45',
+                    playmaking: '99',
+                    defending: '92',
+                    handles: '93',
+                },
+                curry: {
+                    height: '6.3 ft',
+                    three: '99',
+                    mid: '91',
+                    scoring: '94',
+                    iq: '93',
+                    athleticism: '85',
+                    rebounding: '46',
+                    playmaking: '93',
+                    defending: '71',
+                    handles: '96',
+                },
+            };
+   
+        
+            // Create text content for the stats
+            var statsContent = '<h3>' + className.toUpperCase() + ' STATS</h3>';
+            statsContent += '<div class="stats-content">';
+            for (var stat in playerStats[className]) {
+                statsContent += '<p><strong>' + stat.toUpperCase() + ':</strong> ' + playerStats[className][stat] + '</p>';
+            }
+            //statsContent += '</div>';
+ console.info(statsContent)
+            // Set the stats content to the text box
+            statsTextBox.innerHTML = statsContent;
+            statsTextBox.classList.add('show'); // Show the stats box
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+
+	<input id="text"></input>
+	<button id="submit">submit</button>
+
+	<script type="text/javascript">
+		submit.addEventListener("click",
+			function(){
+				console.log(text.value)
+
+			})
+			if(text.value =="jack") {
+				answer.innerText = "100%"
+			}
+			else{
+				answer.innerText = "You two are " + Math.round(Math.random()*100) + "percent"
+			}
+
+
+</body>
+</html>
