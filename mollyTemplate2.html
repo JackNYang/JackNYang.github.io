@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+        h1{
+            font-family:;
+            font-size:;
+            color:;
+        }
+
+        p{
+            font-family: courier;
+            font-size:;
+            color:;
+        }
+
+        .articles{
+            width:200px;
+            height:200px;
+            background-color:green;
+            background-size:cover;
+            margin:150px;
+            display:inline-block;
+        }
+
+        #square0:hover{
+            transition:1s;
+            transform:rotate(720deg);
+
+        }
+
+        .titles{
+            position: relative;
+            background-color:red;
+            left:100%;
+            height:20%;
+            width:100%;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1> My Articles <h1>
+
+<br><br>
+
+<p> description<p>
+
+
+<script type="text/javascript">
+
+//For all of your media, to use this, label each file  with numbers (eg.1.jpg, 2.jpg) and keep them in the same folder as this html file. If they are not jpgs, change the extension "jpg" in the recipe below (line 25) to whatever file type they are.  
+
+//Below is the recipe to make the squares appear on the page//
+    
+    function makeSquare (x) {
+
+            var square = document.createElement('div');
+            var text = document.createElement('div');
+                  square.appendChild(text)
+                  text.classList.add("titles")
+                  text.id = "text"+x
+
+
+            var link = document.createElement("a")
+            link.href=x + ".html"
+      document.body.appendChild(link);
+      link.appendChild(square)
+      square.classList.add("articles")
+            // square.style.width = "400px";
+            // square.style.height = "400px";
+            // square.style.display = "inline-block";
+            // square.style.margin = "10px";
+            // square.style.backgroundRepeat = "no-repeat";
+            // square.style.border = "1px";
+            // square.style.backgroundColor = "green";
+
+            square.style.backgroundImage = "url(" + x + ".png)";
+
+            square.id = "square" + x;};
+
+//Below, is the for loop in which where the squares are actually made. This for loop is where the function above is actually called. It is called 14 times, (between the values of 0 and 15) and because the variable i is declared in the for loop and is then being passed to the makeSquare recipe, each time the function runs, i changes in value (+1). Thus, the attributes that involve the i change in value as well (eg. the id attribute changes to be whatever i was last time, plus 1.)//
+
+    for (var i = 0; i < 15; i=i+1) 
+    { makeSquare(i);}
+
+text0.innerText = "who is the GOAT"
+text1.innerText = "who is the BEST"
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #background {
+            width: 100%;
+            height: 100%;
+            background-color: grey;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #link {
+            position: absolute;
+            top: 40px;
+            left: 480px; /* Adjust as needed */
+            font-size: 45px; /* Decreased font size for better readability */
+            font-family: 'Ropa Sans';
+            text-decoration: none;
+            color: black;
+            z-index: 2; /* Ensure link is above other elements */
+        }
+
+        #GoatArticle {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 338px;
+            height: 190px;
+            background-image: url(https://i.ytimg.com/vi/UL-9X15ooqM/maxresdefault.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="background">
+<div id="GoatArticle"></div>
+    <a href="goat.html">
+        <div  id="link">Who the G.O.A.T? How does ESPN dictate the narratives we listen to?</div>
+    </a>
+
+    </div>
+</body>
+</html>
